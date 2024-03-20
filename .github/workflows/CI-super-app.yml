@@ -29,7 +29,7 @@ jobs:
     - name: Login to dockerhub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-    - name: Push to dockerhub
+    - name: Push to dockerhub {{ .ServiceName }}
       # run: docker compose push shahar1041/super-app
       run: docker compose tag --template "shahar1041.local/super-app/{{ .ServiceName }}" -- push
 
