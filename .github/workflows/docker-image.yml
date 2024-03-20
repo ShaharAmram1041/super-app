@@ -19,8 +19,12 @@ jobs:
       # with:
       #     node-version: 20.x
     
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag shahar1041/super-app
+    # - name: Build the Docker image
+    #   run: docker build . --file Dockerfile --tag shahar1041/super-app
+
+
+    - name: Start containers
+      run: docker-compose -f "docker-compose.yml" up -d --build
 
     - name: login to dockerhub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
