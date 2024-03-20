@@ -1,10 +1,11 @@
-name: Docker Image CI
+name: CI for the super-app
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
 
@@ -14,5 +15,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag super-app
+
+    - name: login to dockerhub
+      run: docker login -u ${{ Secrets.docker_hub_user }} -p ${{ Secrets.docker_hub_password }}
+
+    - name: push to dockerhub
+      run: docker push shaharamr1041/superapp:
