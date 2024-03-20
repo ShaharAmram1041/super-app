@@ -16,6 +16,8 @@ jobs:
 
     - name: Check out the code
       uses: actions/checkout@v3
+      with:
+          node-version: 20.x
     
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag shahar1041/super-app
