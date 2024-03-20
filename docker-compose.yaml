@@ -11,7 +11,7 @@ services:
     ports:
       - 3000:3000            # Mapping port 3000 of the host to port 3000 of the container
     restart: always
-    image: shahar1041/super-app
+    image: shahar1041/super-app/node
 
 
 
@@ -32,6 +32,6 @@ services:
     ports:
       - 80:80                # Mapping port 80 of the host to port 80 of the container
     restart: always
-    image: shahar1041/super-app
+    image: shahar1041/super-app/php
 
 
