@@ -31,8 +31,9 @@ jobs:
 
     - name: Push to dockerhub
       # run: docker compose push shahar1041/super-app
-      run: docker compose tag --template "shahar1041/super-app/{{ .ServiceName }}" -- push
+      run: docker compose tag --template "shahar1041.local/super-app/{{ .ServiceName }}" -- push
 
+# docker compose tag --template "myregistry.local/myrepo/{{ .ServiceName }}:v1" --push 
 
 
 
