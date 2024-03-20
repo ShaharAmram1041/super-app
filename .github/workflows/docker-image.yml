@@ -20,7 +20,7 @@ jobs:
       run: docker build . --file Dockerfile --tag super-app
 
     - name: login to dockerhub
-      run: docker login -u ${{ Secrets.docker_hub_user }} -p ${{ Secrets.docker_hub_password }}
+      run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
 
     - name: push to dockerhub
       run: docker push shaharamr1041/superapp:
