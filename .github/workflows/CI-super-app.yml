@@ -29,16 +29,14 @@ jobs:
     - name: Login to dockerhub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-    - name: Push to dockerhub 
-      run: docker compose push ${{ .ServiceName }}
+    - name: Push to dockerhub the node container
+      run: docker compose push node
+
+    - name: Push to dockerhub the php container
+      run: docker compose push php
+
+    # - name: Push to dockerhub the mysql container
+    #   run: docker compose push php
 
       
-      # run: docker compose tag --template "shahar1041.local/super-app/{{ .ServiceName }}" -- push
-
-# docker compose tag --template "myregistry.local/myrepo/{{ .ServiceName }}:v1" --push 
-
-
-
-      # docker compose tag --template "nexus.local/myrepo/{{ if eq .ServicesToBuildCount 1}}$APP{{ else }}$APP-{{ .ServiceName }}{{ end }}:$VERSION" --push
-
 
