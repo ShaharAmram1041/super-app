@@ -16,15 +16,24 @@ jobs:
 
     - name: Check out the code
       uses: actions/checkout@v4
+      
+    - name: Build the Docker node image
+      run: docker build ./node --file Dockerfile --tag shahar1041/super-app/node
 
-    - name: Build and push the Node.js Docker image
-      run: |
-        docker build ./node --tag shahar1041/super-app/node
-        docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-        docker push shahar1041/super-app/node
+    - name: Build the Docker php image
+      run: docker build ./php --file Dockerfile --tag shahar1041/super-app/php
 
-    - name: Build and push the PHP Docker image
-      run: |
-        docker build ./php --tag shahar1041/super-app/php
-        docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-        docker push shahar1041/super-app/php
+    # - name: Build containers
+    #   run: docker compose up -d 
+
+    - name: Login to dockerhub
+      run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+    - name: Push to dockerhub the node container
+      run: docker push shahar1041/super-app/node
+
+    - name: Push to dockerhub the php container
+      run: docker push php shahar1041/super-app/php
+
+    # - name: Push to dockerhub the mysql container
+    #   run: docker compose push php
