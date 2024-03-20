@@ -7,6 +7,7 @@ services:
 
   # Node.js service
   node:
+    image: shahar1041/node
     build: ./node            # Dockerfile located in the './node' directory
     ports:
       - 3000:3000            # Mapping port 3000 of the host to port 3000 of the container
@@ -14,7 +15,7 @@ services:
 
   # MySQL database service
   db:
-    image: mysql:8.0.28      
+    image: shahar1041/mysql:8.0.28      
     environment:
     # Using Environment variables setting up MySQL database name and password
       MYSQL_DATABASE: super-app   
@@ -25,6 +26,7 @@ services:
 
   # PHP service
   php:
+  image: shahar1041/php
     build: ./php             # Dockerfile located in the './php' directory
     ports:
       - 80:80                # Mapping port 80 of the host to port 80 of the container
