@@ -23,12 +23,12 @@ jobs:
     #   run: docker build . --file Dockerfile --tag shahar1041/super-app
 
 
-    - name: Start containers
-      run: docker-compose -f "docker-compose.yaml" up -d --build
+    - name: Build containers
+      run: docker compose up -d 
 
     - name: login to dockerhub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
 
     - name: push to dockerhub
-      run: docker push shahar1041/super-app:tagname
+      run: docker compose push shahar1041/super-app:tagname
 
