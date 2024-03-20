@@ -24,7 +24,7 @@ jobs:
 
 
     - name: Start containers
-      run: docker-compose -f "docker-compose.yml" up -d --build
+      run: docker-compose -f "docker-compose.yaml" up -d --build
 
     - name: login to dockerhub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
