@@ -17,14 +17,14 @@ jobs:
     - name: Check out the code
       uses: actions/checkout@v4
       
-    - name: Build the Docker node image
-      run: docker build ./node --file Dockerfile --tag shahar1041/super-app:node
+    # - name: Build the Docker node image
+    #   run: docker build ./node --file Dockerfile --tag shahar1041/super-app:node
 
-    - name: Build the Docker php image
-      run: docker build ./php --file Dockerfile --tag shahar1041/super-app:php
+    # - name: Build the Docker php image
+    #   run: docker build ./php --file Dockerfile --tag shahar1041/super-app:php
 
-    # - name: Build containers
-    #   run: docker compose up -d 
+    - name: Build containers
+      run: docker compose up -d 
 
     - name: Login to dockerhub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
