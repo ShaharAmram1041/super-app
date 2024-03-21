@@ -33,7 +33,7 @@ jobs:
       run: docker push shahar1041/super-app:node
 
     - name: Push to dockerhub the php container
-      run: docker push php shahar1041/super-app:php
+      run: docker push shahar1041/super-app:php
 
     # - name: Push to dockerhub the mysql container
     #   run: docker compose push php
