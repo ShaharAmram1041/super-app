@@ -1,31 +1,42 @@
+# Name of the CI workflow for the super-app
 name: CI for the super-app
 
+# Triggers for when the workflow should run
 on:
+  # Trigger the workflow on push events to the main branch
   push:
     branches: [ "main" ]
+  # Trigger the workflow on pull request events to the main branch
   pull_request:
     branches: [ "main" ]
+  # Dispaly manual triggering
   workflow_dispatch:
 
 jobs:
 
+  # Build job configuration
   build:
+    # Operating system of github linux
     runs-on: ubuntu-latest
 
     steps:
-
+    # Check out the code from the repository
     - name: Check out the code
       uses: actions/checkout@v4
       
+    # Build containers using docker-compose
     - name: Build containers
       run: docker compose up -d 
-
+      
+    # Login to the docker hub
     - name: Login to dockerhub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-
+    
+    # Push the Node.js container image to Docker Hub
     - name: Push to dockerhub the node container
       run: docker push shahar1041/super-app:node
 
+    # Push the PHP container image to Docker Hub
     - name: Push to dockerhub the php container
       run: docker push shahar1041/super-app:php
 
