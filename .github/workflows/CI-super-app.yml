@@ -17,12 +17,6 @@ jobs:
     - name: Check out the code
       uses: actions/checkout@v4
       
-    # - name: Build the Docker node image
-    #   run: docker build ./node --file Dockerfile --tag shahar1041/super-app:node
-
-    # - name: Build the Docker php image
-    #   run: docker build ./php --file Dockerfile --tag shahar1041/super-app:php
-
     - name: Build containers
       run: docker compose up -d 
 
@@ -35,5 +29,4 @@ jobs:
     - name: Push to dockerhub the php container
       run: docker push shahar1041/super-app:php
 
-    - name: Push to dockerhub the MYSQL container
-      run: docker push mysql:8.0.28
+   
