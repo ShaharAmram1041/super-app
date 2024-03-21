@@ -35,5 +35,5 @@ jobs:
     - name: Push to dockerhub the php container
       run: docker push shahar1041/super-app:php
 
-    # - name: Push to dockerhub the mysql container
-    #   run: docker compose push php
+    - name: Push to dockerhub the MYSQL container
+      run: docker push mysql:8.0.28
