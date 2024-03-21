@@ -30,10 +30,10 @@ jobs:
       run: docker push shahar1041/super-app:php
 
     - name: Tag the MYSQL container
-      run: docker tag mysql:8.0.28 shahar1041/super-app:mysql:8.0.28
+      run: docker tag mysql:8.0.28 shahar1041/super-app:mysql
 
     - name: Push to dockerhub the MYSQL container
-      run: docker push shahar1041/super-app:mysql:8.0.28
+      run: docker push shahar1041/super-app:mysql
 
 
 
