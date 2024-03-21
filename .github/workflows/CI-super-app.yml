@@ -32,6 +32,9 @@ jobs:
     - name: Tag the MYSQL container
       run: docker tag mysql:8.0.28 shahar1041/super-app:mysql
 
+    - name: Connect to the MYSQL
+      run: docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
     - name: Push to dockerhub the MYSQL container
       run: docker push shahar1041/super-app:mysql
 
