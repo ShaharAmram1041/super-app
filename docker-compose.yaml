@@ -14,7 +14,6 @@ services:
     image: shahar1041/super-app:node
 
 
-
   # MySQL database service
   db:
     image: mysql:8.0.28      
