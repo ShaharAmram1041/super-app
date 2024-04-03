@@ -20,7 +20,7 @@ services:
     environment:
     # Using Environment variables setting up MySQL database name and password
       MYSQL_DATABASE: super-app
-      MYSQL_ROOT_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+      MYSQL_ROOT_PASSWORD: $${{ secrets.DATABASE_PASSWORD }}
     ports:
       - 3306:3306            # Mapping port 3306 of the host to port 3306 of the container
     restart: always          
