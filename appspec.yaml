@@ -1,8 +1,10 @@
 version: 0.0
 os: linux
 files:
-  - source: /index.html
-    destination: /var/www/html/
+  - source: /node
+    destination: /var/www/node/
+  - source: /php
+    destination: /var/www/php/
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
